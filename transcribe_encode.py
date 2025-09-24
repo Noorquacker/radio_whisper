@@ -18,7 +18,7 @@ def encode(audio):
     ffmpeg = (
         FFmpeg()
         .option("y")
-        .input("pipe:0", {"ar": 16000}, f="f32le")
+        .input("pipe:0", {"ar": 16000, "ac": 1}, f="f32le")
         .output("pipe:1", {"codec:a": "libopus", "ar": 48000}, f="opus")
     )
     try:
